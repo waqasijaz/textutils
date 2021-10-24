@@ -30,7 +30,7 @@ setText(newText);
 
     return (
         <>
-    <div className="container my-4">
+    <div className="container my-4" style={{color: props.mode ==="dark"?"white":"black"}}>
         <h1>{props.heading}</h1>
       <form>
         <div className="mb-3">
@@ -40,6 +40,7 @@ setText(newText);
             rows="8"
             value={text}
             onChange={handleOnChange}
+            style={{backgroundColor: props.mode ==="dark"?"grey":"white",color: props.mode ==="dark"?"white":"black"}}
           ></textarea>
         </div>
       </form>
@@ -47,12 +48,12 @@ setText(newText);
       <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert To Lower Case</button>
       <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear</button>
     </div>
-    <div className="container my-3">
+    <div className="container my-3" style={{color: props.mode ==="dark"?"white":"black"}}>
         <h1>Your Text Summary</h1>
         <p>Words {text.split(" ").length} Character {text.length}</p>
         <p>{0.008 * text.split(" ").length} Minutes required to read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter Something To Preview..."}</p>
 
     </div>
     </>
